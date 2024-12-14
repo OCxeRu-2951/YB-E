@@ -653,9 +653,37 @@
           description: "ユーザーの色を変更",
           args: [
             { type: "string", description: "色コード" },
-            { type: "id", description: "ユーザーID" },
+            { type: "id", description: "ユーザーID" },],
+        },
+        {
+          name: "destroy",
+          description: "指定した要素が含まれている投稿を削除する",
+          args: [
+            { type: "string", description: "削除する要素" }
           ],
         },
+        {
+          name: "clear",
+          description: "投稿を全て削除する"
+        },
+        {
+          name: "NG",
+          description: "指定した単語を青IDでは使用禁止する",
+          args: [
+            { type: "strings", description: "使用禁止にしたい単語"}
+          ],
+        },
+        {
+          name: "OK",
+          description: "指定した単語を青IDで使用可能にする",
+          args: [
+            { type: "strings", description: "使用可能にしたい単語"}
+          ],
+        },
+        {
+          name: "disself",
+          description: "現在、自身が使用中のアカウントの権限を下げられる"
+        }
       ];
 
       function getUserIds() {
