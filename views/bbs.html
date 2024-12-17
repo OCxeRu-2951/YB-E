@@ -334,20 +334,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script language="javascript">
-      function pushHideButton() {
-        var txtPass = document.getElementById("modalSeed");
-        var btnEye = document.getElementById("buttonEye");
-
-        if (txtPass.type === "text") {
-          txtPass.type = "password";
-          btnEye.className = "fa fa-eye";
-        } else {
-          txtPass.type = "text";
-          btnEye.className = "fa fa-eye-slash";
-        }
-      }
-    </script>
     <script>
       let messageStore = new Map();
       let currentChannel = "main";
@@ -405,7 +391,7 @@
 
         const numberSpan = document.createElement("span");
         numberSpan.className = "text-muted";
-        numberSpan.textContent = `${message.number}:`;
+        numberSpan.textContent = `<button id="${message.number}">${message.number}:</button>`;
 
         const nameSpan = document.createElement("span");
         if (message.name_color) {
@@ -922,6 +908,20 @@
         window.addEventListener('load', () => {
             memoStatus.textContent = '';
         });
+
+        // シードの表示・非表示
+        function pushHideButton() {
+        var txtPass = document.getElementById("modalSeed");
+        var btnEye = document.getElementById("buttonEye");
+
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          btnEye.className = "fa fa-eye";
+        } else {
+          txtPass.type = "text";
+          btnEye.className = "fa fa-eye-slash";
+        }
+      }
     </script>
   </body>
 </html>
