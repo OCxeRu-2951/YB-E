@@ -394,6 +394,17 @@
         numberSpan.textContent = `${message.number}:`;
         numberSpan.href = "#";
 
+        $(numberSpan).on('click', function (event) {
+          event.preventDefault();
+          const tempInput = document.createElement("input");
+          tempInput.value = message.number;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          alert('Number copied to clipboard: ' + message.number);
+          });
+
         const nameSpan = document.createElement("span");
         if (message.name_color) {
           nameSpan.style.color = message.name_color;
