@@ -389,9 +389,42 @@
         const header = document.createElement("div");
         header.className = "d-flex align-items-center gap-2 small";
 
-        const numberSpan = document.createElement("button");
-        numberSpan.className = "text-muted";
-        numberSpan.textContent = `${message.number}:`;
+        // jQueryを使用してアンカーをクリックしたときにテキストをコピーする機能
+const numberSpan = document.createElement("a");
+numberSpan.className = "text-muted";
+numberSpan.textContent = `${message.number}:`;
+numberSpan.href = "#";
+
+// jQueryでクリックイベントを追加
+$(numberSpan).on('click', function(event) {
+    event.preventDefault(); // デフォルトのリンク動作を防ぐ
+    
+    // コピーするテキスト
+    const textToCopy = numberSpan.textContent;
+
+    // 一時的なテキストエリアを作成
+    const textArea = document.createElement('textarea');
+    textArea.value = textToCopy;
+    document.body.appendChild(textArea);
+
+    // テキストエリアの内容を選択
+    textArea.select();
+    textArea.setSelectionRange(0, 99999); // モバイルデバイスでも選択範囲を設定
+
+    // テキストをコピー
+    document.execCommand('copy');
+
+    // テキストエリアを削除
+    document.body.removeChild(textArea);
+
+    // コピーしたことを通知するアラート
+    alert("Copied: " + textToCopy);
+});
+
+// 作成したアンカー要素をDOMに追加
+document.body.appendChild(numberSpan);
+
+        
 
         const nameSpan = document.createElement("span");
         if (message.name_color) {
