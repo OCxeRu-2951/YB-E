@@ -394,16 +394,14 @@
         numberSpan.textContent = `${message.number}:`;
         numberSpan.href = "#";
 
-        $(numberSpan).on('click', function (event) {
+        $(numberSpan).on("click", function(event) {
           event.preventDefault();
-          const tempInput = document.createElement("input");
-          tempInput.value = message.number;
-          document.body.appendChild(tempInput);
-          tempInput.select();
-          document.execCommand('copy');
-          document.body.removeChild(tempInput);
-          alert('Number copied to clipboard: ' + message.number);
+          navigator.clipboard.writeText(message.number).then(function() {
+            alert("Number copied to clipboard!");
+          }).catch(function(err) {
+            console.error("Failed to copy: ", err);
           });
+        });
 
         const nameSpan = document.createElement("span");
         if (message.name_color) {
