@@ -389,9 +389,9 @@
         const header = document.createElement("div");
         header.className = "d-flex align-items-center gap-2 small";
 
-        const numberSpan = document.createElement("span");
+        const numberSpan = document.createElement("button");
         numberSpan.className = "text-muted";
-        numberSpan.textContent = `<button id="${message.number}">${message.number}:</button>`;
+        numberSpan.textContent = `${message.number}:`;
 
         const nameSpan = document.createElement("span");
         if (message.name_color) {
