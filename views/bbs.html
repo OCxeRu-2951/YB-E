@@ -389,22 +389,9 @@
         const header = document.createElement("div");
         header.className = "d-flex align-items-center gap-2 small";
 
-        const numberSpan = document.createElement("a");
+        const numberSpan = document.createElement("span");
         numberSpan.className = "text-muted";
         numberSpan.textContent = `${message.number}:`;
-        numberSpan.href = "#";
-
-        $(numberSpan).on("click", function(event) {
-    event.preventDefault();
-    navigator.clipboard.writeText(message.number)
-        .then(function() {
-            alert("Number copied to clipboard!");
-        })
-        .catch(function(err) {
-            console.error("Failed to copy: ", err);
-        });
-});
-
 
         const nameSpan = document.createElement("span");
         if (message.name_color) {
