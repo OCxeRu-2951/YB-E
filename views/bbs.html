@@ -395,13 +395,16 @@
         numberSpan.href = "#";
 
         $(numberSpan).on("click", function(event) {
-          event.preventDefault();
-          navigator.clipboard.writeText(message.number).then(function() {
+    event.preventDefault();
+    navigator.clipboard.writeText(message.number)
+        .then(function() {
             alert("Number copied to clipboard!");
-          }).catch(function(err) {
+        })
+        .catch(function(err) {
             console.error("Failed to copy: ", err);
-          });
         });
+});
+
 
         const nameSpan = document.createElement("span");
         if (message.name_color) {
