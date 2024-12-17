@@ -909,12 +909,12 @@
         }
         function saveMemo() {
             localStorage.setItem('memoContent', memo.value);
-            memoStatus.textContent = '変更を保存しました。';
+            memoStatus.textContent = '変更を保存しました';
             setTimeout(() => {
-                if (memoStatus.textContent === '変更を保存しました。') {
+                if (memoStatus.textContent === '変更を保存しました') {
                     memoStatus.textContent = '';
                 }
-            }, 2000);
+            }, 3000);
         }
         memo.addEventListener('input', () => {
             saveMemo();
